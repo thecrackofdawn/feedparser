@@ -52,6 +52,8 @@ def _parse_date_iso8601(dateString):
         return
     if m.span() == (0, 0):
         return
+    if m.end() != len(dateString):
+        return
     params = m.groupdict()
     ordinal = params.get('ordinal', 0)
     if ordinal:
